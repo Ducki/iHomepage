@@ -14,9 +14,20 @@ namespace iHomepage.Tests.Controllers
     public class FeedManagerTest
     {
         [TestMethod]
-        public void Index()
+        public void GetAllFeedsReturnsCorrectType()
         {
 
+            iHomepageEntities context = new iHomepageEntities();
+
+            // Arrange
+            FeedManager fm = new FeedManager(context);
+
+            // Act
+            var feeds = fm.GetAllFeeds();
+
+            // Assert
+            Assert.IsNotNull(feeds);
+            Assert.IsInstanceOfType(feeds, typeof(List<SyndicationFeed>));
         }
 
     }
