@@ -3,6 +3,22 @@
 /// <reference path="http://documentcloud.github.com/underscore/underscore-min.js" />
 /// <reference path="http://documentcloud.github.com/backbone/backbone-min.js" />
 
+var FeedListModel = Backbone.Model.extend({
+    defaults: {
+        FeedItems: "",
+        DisplayColumn: "",
+        DisplayRow: "",
+        Title: ""
+    }
+});
+
+var FeedModel = Backbone.Model.extend({
+    defaults: {
+        Title: "",
+        Link: "",
+        Description: ""
+    }
+});
 
 var FeedManager = Backbone.Model.extend({
 
