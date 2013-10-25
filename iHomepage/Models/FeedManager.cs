@@ -40,7 +40,7 @@ namespace iHomepage.Models
 
         public List<ConfiguredJsonFeed> GetConfiguredJsonFeeds()
         {
-            return new NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.ServiceModel.Syndication;
 
 namespace iHomepage.Models
 {
-    internal class ConfiguredJsonFeed
+    public class ConfiguredJsonFeed
     {
         public List<SyndicationItem> FeedItems { get; set; }
         public int DisplayColumn { get; set; }
