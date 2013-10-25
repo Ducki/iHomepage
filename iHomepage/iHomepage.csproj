@@ -58,6 +58,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -180,7 +182,25 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Feed.cs">
+      <DependentUpon>FeedModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\FeedManager.cs" />
+    <Compile Include="Models\FeedModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FeedModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FeedModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FeedModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FeedModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FeedModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -194,6 +214,23 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\FeedModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FeedModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\FeedModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FeedModel.edmx</DependentUpon>
+      <LastGenOutput>FeedModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\FeedModel.edmx.diagram">
+      <DependentUpon>FeedModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\FeedModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FeedModel.edmx</DependentUpon>
+      <LastGenOutput>FeedModel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
@@ -242,6 +279,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
