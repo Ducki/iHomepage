@@ -1,4 +1,50 @@
-﻿
+﻿/// <reference path="jquery-2.0.3.js" />
+
+/// <reference path="http://documentcloud.github.com/underscore/underscore-min.js" />
+/// <reference path="http://documentcloud.github.com/backbone/backbone-min.js" />
+
+
+var FeedManager = Backbone.Model.extend({
+
+});
+
+var AppView = Backbone.View.extend({
+    
+    initialize: function () {
+
+    },
+
+    render: function () {
+        
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // snippet:
 
@@ -35,3 +81,5 @@ function get_rss_feed() {
     });
 
 };
+
+    
