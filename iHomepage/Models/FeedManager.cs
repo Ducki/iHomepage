@@ -17,6 +17,10 @@ namespace iHomepage.Models
             this.context = context;
         }
 
+        /// <summary>
+        /// Returns a list of SyndicationFeed objects of all feeds in database
+        /// </summary>
+        /// <returns>List<SyndicationFeed></returns>
         public List<SyndicationFeed> GetAllFeeds()
         {
             var dbFeeds = context.Feeds.ToList();
@@ -31,6 +35,12 @@ namespace iHomepage.Models
             }            
 
             return feeds;
+        }
+
+
+        public List<ConfiguredJsonFeed> GetConfiguredJsonFeeds()
+        {
+            return new NotImplementedException();
         }
     }
 }
