@@ -30,5 +30,21 @@ namespace iHomepage.Tests.Controllers
             Assert.IsInstanceOfType(feeds, typeof(List<SyndicationFeed>));
         }
 
+
+        [TestMethod]
+        public void TestGetConfiguredJsonFeeds()
+        {
+            iHomepageEntities context = new iHomepageEntities();
+
+            // Arrange
+            FeedManager fm = new FeedManager(context);
+
+            // Act
+            var feeds = fm.GetConfiguredJsonFeeds();
+
+            // Assert
+            Assert.IsNotNull(feeds);
+            Assert.IsInstanceOfType(feeds, typeof(List<ConfiguredJsonFeed>));
+        }
     }
 }
