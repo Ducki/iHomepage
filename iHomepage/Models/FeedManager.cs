@@ -41,31 +41,10 @@ namespace iHomepage.Models
         /// Returns list of ConfiguredFeed objects, which contain config options from database
         /// </summary>
         /// <returns>List<ConfiguredFeed></returns>
-        public List<ConfiguredFeed> GetConfiguredFeeds()
+        public List<Feed> GetConfiguredFeeds()
         {
-
-            var dbFeeds = context.Feeds.ToList();
-
-            List<ConfiguredFeed> JsonFeeds = new List<ConfiguredFeed>();
-
-            foreach (var feed in dbFeeds)
-            {
-
-                XmlReader xmlfeed = XmlReader.Create(feed.Uri);
-
-                SyndicationFeed sf = SyndicationFeed.Load(xmlfeed);
-
-                ConfiguredFeed jsonFeed = new ConfiguredFeed()
-                {
-                    DisplayColumn = (int)feed.DisplayColumn,
-                    DisplayRow = (int)feed.DisplayRow,
-                    FeedItems = sf.Items.Take((int)feed.DisplayItemCount).ToList()
-                };
-
-                JsonFeeds.Add(jsonFeed);
-            }
-
-            return JsonFeeds;
+                        
+            return context.Feeds.ToList();
         }
     }
 }
