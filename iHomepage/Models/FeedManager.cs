@@ -40,7 +40,29 @@ namespace iHomepage.Models
 
         public List<ConfiguredJsonFeed> GetConfiguredJsonFeeds()
         {
-            throw new NotImplementedException();
+
+            var dbFeeds = context.Feeds.ToList();
+
+            List<ConfiguredJsonFeed> JsonFeeds = new List<ConfiguredJsonFeed>();
+
+            foreach (var feed in dbFeeds)
+            {
+
+                XmlReader xmlfeed = XmlReader.Create(feed.Uri);
+
+                SyndicationFeed sf = SyndicationFeed.Load(xmlfeed);
+
+                ConfiguredJsonFeed jsonFeed = new ConfiguredJsonFeed()
+                {
+                    DisplayColumn = (int)feed.DisplayColumn,
+                    DisplayRow = (int)feed.DisplayRow,
+                    FeedItems = sf.Items.Take((int)feed.DisplayItemCount).ToList()
+                };
+
+                JsonFeeds.Add(jsonFeed);
+            }
+
+            return JsonFeeds;
         }
     }
 }
