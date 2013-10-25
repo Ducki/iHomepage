@@ -11,6 +11,7 @@ namespace iHomepage.Models
         public List<SyndicationItem> FeedItems { get; set; }
         public int DisplayColumn { get; set; }
         public int DisplayRow { get; set; }
+        public string FeedTitle { get; set; }
     }
 
 
