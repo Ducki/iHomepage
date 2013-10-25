@@ -12,7 +12,11 @@ var FeedListModel = Backbone.Model.extend({
     }
 });
 
-var FeedModel = Backbone.Model.extend({
+var FeedListCollection = Backbone.Collection.extend({
+    model: FeedListModel
+});
+
+var FeedItemModel = Backbone.Model.extend({
     defaults: {
         Title: "",
         Link: "",
@@ -20,16 +24,28 @@ var FeedModel = Backbone.Model.extend({
     }
 });
 
+var FeedCollection = Backbone.Collection.extend({
+    model: FeedItemModel
+});
+
 var FeedManager = Backbone.Model.extend({
 
-    FetchFeeds: function () {
+    FetchFeedsList: function () {
         var self = this;
 
         $.getJSON("/Feed/GetAllConfiguredFeeds", null, function (data, textStatus, jqXHR) {
-            console.log(data)
+            console.log(data);
         });
-    }
+    },
 
+    FetchSingleFeed: function () {
+        // fetch xml from uri, extract title, description and url
+    },
+
+    CreateFeedsCollection: function () {
+        // Loop through FeedListCollection and call FetchSingleFeed for every entry.
+        // Combine in FeedsCollection
+    }
 });
 
 var AppView = Backbone.View.extend({
