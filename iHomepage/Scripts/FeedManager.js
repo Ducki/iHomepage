@@ -22,18 +22,26 @@ var FeedModel = Backbone.Model.extend({
 
 var FeedManager = Backbone.Model.extend({
 
+    FetchFeeds: function () {
+        var self = this;
+
+        $.getJSON("/Feed/GetAllConfiguredFeeds", null, function (data, textStatus, jqXHR) {
+            console.log(data)
+        });
+    }
+
 });
 
 var AppView = Backbone.View.extend({
-    
+
     initialize: function () {
 
     },
 
     render: function () {
-        
+
     }
-})
+});
 
 
 
