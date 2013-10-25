@@ -40,11 +40,11 @@ namespace iHomepage.Tests.Controllers
             FeedManager fm = new FeedManager(context);
 
             // Act
-            var feeds = fm.GetConfiguredJsonFeeds();
+            var feeds = fm.GetConfiguredFeeds();
 
             // Assert
             Assert.IsNotNull(feeds);
-            Assert.IsInstanceOfType(feeds, typeof(List<ConfiguredJsonFeed>));
+            Assert.IsInstanceOfType(feeds, typeof(List<ConfiguredFeed>));
         }
     }
 }

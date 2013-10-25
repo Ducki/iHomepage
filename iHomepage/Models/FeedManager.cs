@@ -37,13 +37,16 @@ namespace iHomepage.Models
             return feeds;
         }
 
-
-        public List<ConfiguredJsonFeed> GetConfiguredJsonFeeds()
+        /// <summary>
+        /// Returns list of ConfiguredFeed objects, which contain config options from database
+        /// </summary>
+        /// <returns>List<ConfiguredFeed></returns>
+        public List<ConfiguredFeed> GetConfiguredFeeds()
         {
 
             var dbFeeds = context.Feeds.ToList();
 
-            List<ConfiguredJsonFeed> JsonFeeds = new List<ConfiguredJsonFeed>();
+            List<ConfiguredFeed> JsonFeeds = new List<ConfiguredFeed>();
 
             foreach (var feed in dbFeeds)
             {
@@ -52,7 +55,7 @@ namespace iHomepage.Models
 
                 SyndicationFeed sf = SyndicationFeed.Load(xmlfeed);
 
-                ConfiguredJsonFeed jsonFeed = new ConfiguredJsonFeed()
+                ConfiguredFeed jsonFeed = new ConfiguredFeed()
                 {
                     DisplayColumn = (int)feed.DisplayColumn,
                     DisplayRow = (int)feed.DisplayRow,
