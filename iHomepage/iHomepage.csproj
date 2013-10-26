@@ -233,6 +233,7 @@
       <DependentUpon>FeedModel.edmx</DependentUpon>
       <LastGenOutput>FeedModel.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\iHomepage.pubxml" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\FeedManager.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
