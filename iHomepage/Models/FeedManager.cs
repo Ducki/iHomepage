@@ -33,11 +33,11 @@ namespace iHomepage.Models
         /// Returns list of ConfiguredFeed objects, which contain config options from database
         /// </summary>
         /// <returns>List<ConfiguredFeed></returns>
-        public List<SyndicationFeed> GetConfiguredFeeds()
+        public List<ConfiguredFeed> GetConfiguredFeeds()
         {
             var dbFeeds = context.Feeds.ToList();
 
-            List<SyndicationFeed> feeds = new List<SyndicationFeed>();
+            List<ConfiguredFeed> feeds = new List<ConfiguredFeed>();
 
             var httpClient = new HttpClient();
 
@@ -52,7 +52,14 @@ namespace iHomepage.Models
 
                                             sfeed.Items = sfeed.Items.Take((int)dbfeed.DisplayItemCount);
 
-                                            feeds.Add(sfeed);
+                                            ConfiguredFeed cfeed = new ConfiguredFeed()
+                                            {
+                                                DisplayColumn = (int)dbfeed.DisplayColumn,
+                                                DisplayRow = (int)dbfeed.DisplayRow,
+                                                Feed = sfeed
+                                            };
+
+                                            feeds.Add(cfeed);
                                         }
 
                                         return task.Result;

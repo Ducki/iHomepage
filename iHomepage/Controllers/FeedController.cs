@@ -33,7 +33,7 @@ namespace iHomepage.Controllers
         {
             FeedManager fm = new FeedManager(context);
 
-            List<Feed> feeds = fm.GetConfiguredFeeds();
+            List<ConfiguredFeed> feeds = fm.GetConfiguredFeeds();
 
             return Json(feeds, JsonRequestBehavior.AllowGet);
         }

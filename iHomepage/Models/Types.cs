@@ -8,10 +8,9 @@ namespace iHomepage.Models
 {
     public class ConfiguredFeed
     {
-        public List<SyndicationItem> FeedItems { get; set; }
+        public SyndicationFeed Feed { get; set; }
         public int DisplayColumn { get; set; }
         public int DisplayRow { get; set; }
-        public string FeedTitle { get; set; }
     }
 
 
