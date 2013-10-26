@@ -19,5 +19,6 @@ namespace iHomepage.Models
         public Nullable<int> DisplayColumn { get; set; }
         public Nullable<int> DisplayRow { get; set; }
         public Nullable<int> DisplayItemCount { get; set; }
+        public string FeedTitle { get; set; }
     }
 }

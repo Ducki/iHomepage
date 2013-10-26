@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="iHomepageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="iHomepageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Feeds">
           <Key>
             <PropertyRef Name="Id" />
@@ -14,12 +14,12 @@
           <Property Name="DisplayColumn" Type="int" />
           <Property Name="DisplayRow" Type="int" />
           <Property Name="DisplayItemCount" Type="int" />
+          <Property Name="FeedTitle" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="iHomepageModelStoreContainer">
           <EntitySet Name="Feeds" EntityType="Self.Feeds" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="iHomepageModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -32,6 +32,7 @@
           <Property Name="DisplayColumn" Type="Int32" />
           <Property Name="DisplayRow" Type="Int32" />
           <Property Name="DisplayItemCount" Type="Int32" />
+          <Property Name="FeedTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="iHomepageEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Feeds" EntityType="Self.Feed" />
@@ -45,6 +46,7 @@
           <EntitySetMapping Name="Feeds">
             <EntityTypeMapping TypeName="iHomepageModel.Feed">
               <MappingFragment StoreEntitySet="Feeds">
+                <ScalarProperty Name="FeedTitle" ColumnName="FeedTitle" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Uri" ColumnName="Uri" />
                 <ScalarProperty Name="DisplayColumn" ColumnName="DisplayColumn" />
