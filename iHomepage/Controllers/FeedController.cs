@@ -26,7 +26,7 @@ namespace iHomepage.Controllers
 
         public JsonResult GetAllFeeds()
         {
-            throw new NotImplementedException();
+            return Json(new FeedManager(context).GetAllFeeds(), JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetAllConfiguredFeeds()
